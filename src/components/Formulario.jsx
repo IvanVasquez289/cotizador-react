@@ -2,9 +2,10 @@ import { Fragment } from "react"
 import { marcas, planes, years } from "../constants"
 import useCotizador from "../hooks/useCotizador"
 const Formulario = () => {
-  const {modal,cambiarState} = useCotizador()
-  console.log(modal)
-  return (
+
+    const {handleChangeDatos, datos} = useCotizador()
+
+    return (
     <>
         <button onClick={()=> cambiarState()}>Cambiar state</button>
         <form>
@@ -12,7 +13,13 @@ const Formulario = () => {
                 <label htmlFor="marca" className=' block mb-3 uppercase text-gray-400'>
                     Marca
                 </label>
-                <select name="marca" id="marca" className='w-full bg-white border border-gray-200 p-3'>
+                <select 
+                    name="marca" 
+                    id="marca" 
+                    className='w-full bg-white border border-gray-200 p-3'
+                    value={datos.marca}
+                    onChange={ e => handleChangeDatos(e)}
+                >
                     <option value="">--Selecciona marca--</option>
                     {marcas.map( marca => (
                         <option key={marca.id} value={marca.nombre}>
@@ -25,7 +32,13 @@ const Formulario = () => {
                 <label htmlFor="year" className=' block mb-3 uppercase text-gray-400'>
                     Año
                 </label>
-                <select name="year" id="year" className='w-full bg-white border border-gray-200 p-3'>
+                <select 
+                    name="year" 
+                    id="year" 
+                    className='w-full bg-white border border-gray-200 p-3'
+                    value={datos.year}
+                    onChange={ e => handleChangeDatos(e)}
+                >
                     <option value="">--Selecciona el año--</option>
                     {years.map( year => (
                         <option key={year} value={year}>
@@ -42,7 +55,13 @@ const Formulario = () => {
                     {planes.map(plan => (
                         <Fragment key={plan.id}>
                             <label htmlFor={plan.id}>{plan.nombre}</label>
-                            <input type="radio" name="plan" value={plan.id} id={plan.id}/>
+                            <input 
+                                type="radio" 
+                                name="plan" 
+                                value={plan.id} 
+                                id={plan.id}
+                                onChange={ e => handleChangeDatos(e)}
+                                />
                         </Fragment>
                     ))}
                 </div>
