@@ -7,7 +7,6 @@ const Formulario = () => {
 
     return (
     <>
-        <button onClick={()=> cambiarState()}>Cambiar state</button>
         <form>
             <div className='my-10'>
                 <label htmlFor="marca" className=' block mb-3 uppercase text-gray-400'>

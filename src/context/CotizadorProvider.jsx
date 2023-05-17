@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import { createContext, useState} from "react";
 
 const CotizadorContext = createContext()
