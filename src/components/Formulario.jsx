@@ -3,11 +3,11 @@ import { marcas, planes, years } from "../constants"
 import CotizadorContext from "../context/CotizadorProvider"
 
 const Formulario = () => {
-  const {hola} = useContext(CotizadorContext)
-  console.log(hola)
+  const {modal,cambiarState} = useContext(CotizadorContext)
+  console.log(modal)
   return (
     <>
-
+        <button onClick={()=> cambiarState()}>Cambiar state</button>
         <form>
             <div className='my-10'>
                 <label htmlFor="marca" className=' block mb-3 uppercase text-gray-400'>
